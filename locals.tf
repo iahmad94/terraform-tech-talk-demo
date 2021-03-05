@@ -1,5 +1,5 @@
 locals {
-  public_subnet_cidrs    = [
+  public_subnet_cidrs = [
     cidrsubnet(var.vpc_cidr, ceil(log(6, 2)), 0),
     cidrsubnet(var.vpc_cidr, ceil(log(6, 2)), 1),
   ]
@@ -10,10 +10,10 @@ locals {
   ]
   name = "tech-talk-${var.env}"
 
-  tags =    {
+  tags = {
     "terraform" = "true",
-    "env"           = var.env,
-    "project" = "tech-talk"
-    "Owner"         = basename(data.aws_caller_identity.current.arn)
+    "env"       = var.env,
+    "project"   = "tech-talk"
+    "Owner"     = basename(data.aws_caller_identity.current.arn)
   }
 }
